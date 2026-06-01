@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-container">
+    <section class="todo-panel" aria-labelledby="app-title">
+      <div class="todo-header">
+        <!-- <p class="todo-label">Productivity</p> -->
+        <h1 id="app-title">Todo List</h1>
+      </div>
+
+      <div class="week-view" aria-label="주간 Todo 보기">
+        <div class="week-navigation">
+          <button id="previous-week-button" class="date-button" type="button" aria-label="이전 주차">이전 주</button>
+          <p id="selected-date-text" class="selected-date-text"></p>
+          <button id="next-week-button" class="date-button" type="button" aria-label="다음 주차">다음 주</button>
+        </div>
+
+        <div id="week-days" class="week-days" aria-label="이번 주 날짜 목록"></div>
+      </div>
+
+      <form id="todo-form" class="todo-form" novalidate>
+        <label class="sr-only" for="todo-input">새 Todo 입력</label>
+        <input
+          id="todo-input"
+          class="todo-input"
+          type="text"
+          placeholder="오늘 할 일을 입력하세요"
+          autocomplete="off"
+        >
+        <button class="add-button" type="submit">추가</button>
+      </form>
+
+      <p id="message" class="message" role="alert" aria-live="polite"></p>
+
+      <div id="filter-tabs" class="filter-tabs" role="tablist" aria-label="Todo 상태 필터">
+        <button class="filter-tab active" type="button" data-filter="all" role="tab" aria-selected="true">전체</button>
+        <button class="filter-tab" type="button" data-filter="active" role="tab" aria-selected="false">진행 중</button>
+        <button class="filter-tab" type="button" data-filter="completed" role="tab" aria-selected="false">완료</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-label="Todo 목록"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
