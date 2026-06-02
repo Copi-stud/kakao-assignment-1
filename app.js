@@ -2,6 +2,7 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 const message = document.querySelector("#message");
+const emptyMessage = document.querySelector("#empty-message");
 const filterTabs = document.querySelector("#filter-tabs");
 const previousWeekButton = document.querySelector("#previous-week-button");
 const nextWeekButton = document.querySelector("#next-week-button");
@@ -182,9 +183,12 @@ function updateFilterTabStyles() {
 
 // 현재 todos 배열을 기준으로 Todo 목록 화면을 다시 그립니다.
 function renderTodos() {
-  todoList.innerHTML = "";
+  const filteredTodos = getFilteredTodos();
 
-  getFilteredTodos().forEach((todo) => {
+  todoList.innerHTML = "";
+  emptyMessage.classList.toggle("visible", filteredTodos.length === 0);
+
+  filteredTodos.forEach((todo) => {
     const todoItem = document.createElement("li");
     todoItem.className = "todo-item";
     todoItem.dataset.todoId = todo.id;

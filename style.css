@@ -240,6 +240,23 @@ button {
   box-shadow: 0 8px 18px rgba(103, 43, 224, 0.22);
 }
 
+.empty-message {
+  display: none;
+  margin: 20px 0 0;
+  padding: 22px 16px;
+  color: var(--muted-text-color);
+  background: #faf9fd;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.empty-message.visible {
+  display: block;
+}
+
 .todo-list {
   display: grid;
   gap: 12px;
